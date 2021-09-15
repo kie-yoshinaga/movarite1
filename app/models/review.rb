@@ -9,5 +9,7 @@ class Review < ApplicationRecord
   #validates :rate, presence: true
 
   belongs_to :user
-  belongs_to :genre
+  belongs_to_active_hash :genre
+
+  has_one_attached :image
 end
