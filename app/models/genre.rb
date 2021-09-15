@@ -18,6 +18,6 @@ class Genre < ActiveHash::Base
   extend ActiveHash::Associations::ActiveRecordExtensions 
 
   include ActiveHash::Associations
-    #has_many :reviews
+    has_many :reviews
     #has_one :users
 end
