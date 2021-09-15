@@ -1,0 +1,206 @@
+html{
+  color:rgb(0, 0, 0);
+  background:#efc94d;
+
+}
+/*
+  TODO remove settings on BODY since we can't namespace it.
+*/
+/*
+  TODO test putting a class on HEAD.
+      - Fails on FF.
+*/
+body,
+div,
+dl,
+dt,
+dd,
+ul,
+ol,
+li,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+pre,
+code,
+form,
+fieldset,
+legend,
+input,
+textarea,
+p,
+blockquote,
+th,
+td {
+  margin:0;
+  padding:0;
+}
+table {
+  border-collapse:collapse;
+  border-spacing:0;
+}
+fieldset,
+img {
+  border:0;
+}
+/*
+  TODO think about hanlding inheritence differently, maybe letting IE6 fail a bit...
+*/
+address,
+caption,
+cite,
+code,
+dfn,
+em,
+strong,
+th,
+var {
+  font-style:normal;
+  font-weight:normal;
+}
+
+ol,
+ul {
+  list-style:none;
+}
+
+caption,
+th {
+  text-align:left;
+}
+h1,
+h3,
+h4,
+h6 {
+  font-size:100%;
+  font-weight:normal;
+}
+h2,
+h5 {
+  font-size:100%;
+  font-weight:normal;
+  color: #000;
+}
+q:before,
+q:after {
+  content:'';
+}
+abbr,
+acronym {
+  border:0;
+  font-variant:normal;
+}
+/* to preserve line-height and selector appearance */
+sup {
+  vertical-align:text-top;
+}
+sub {
+  vertical-align:text-bottom;
+}
+input,
+textarea,
+select {
+  font-family:inherit;
+  font-size:inherit;
+  font-weight:inherit;
+}
+/*to enable resizing for IE*/
+input,
+textarea,
+select {
+  *font-size:100%;
+}
+/*because legend doesn't inherit in IE */
+legend {
+  color:#000;
+}
+/* YUI CSS Detection Stamp */
+#yui3-css-stamp.cssreset { display: none; }
+
+a {
+  text-decoration: none;
+
+}
+
+.main {
+  background-image: image_url('/assets/videos/movie.mp4');
+  autoplay:loop;
+  background: #a4acc4;
+}
+
+/* 画面上部の「あなたが映画の評価をしよう」帯部分 */
+.title-contents {
+  width: 100vw;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: top center;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 5vh 15vw;
+  color: rgb(255, 255, 255);
+  font-size: 10vh;
+}
+
+
+.service-title {
+  font-size: 4vh;
+  padding: 5vh 10vw;
+}
+
+.service-explain {
+  font-size: 2.5vh;
+  line-height: 40px;
+}
+
+.apple-btn {
+  margin-right: 1vw;
+  height: 9vh;
+}
+
+.google-btn {
+  height: 9vh;
+}
+
+/* //画面上部の「人生を変えるフリマアプリ」帯部分 */
+
+/* 評価一覧 */
+
+.movie-contents {
+  background-color: #FFF;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10vh 0;
+}
+
+.movie-contents>.title {
+  font-size: 5vh;
+  line-height: 1.4;
+  font-weight: bold;
+}
+
+.movie-contents>.subtitle {
+  font-size: 3vh;
+  margin: 1vh 0;
+  text-decoration: none;
+  color: #3ccace;
+  font-weight: bold;
+}
+
+.movie-lists {
+  width: 100vw;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.movie-lists>.list {
+  width: 37vh;
+  padding: 1vw;
+  background-color: #FFF;
+}

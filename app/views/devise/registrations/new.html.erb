@@ -1,0 +1,85 @@
+<header class='second-header'>
+  <%= link_to image_tag("movie-logo.png", class:"second-logo"), "/" %>
+</header>
+
+<%= form_with model: @user, url: user_registration_path, class: 'registration-main', local: true do |f| %>
+
+
+<div class='account-page' id='account-page'>
+  <div class='account-page__inner clearfix'>
+    <div class='account-page__inner--left account-page__header'>
+      <h5>新規アカウントの作成</h5>
+    </div>
+    <div class='account-page__inner--right user-form'>
+      <%#= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+        <%= render "devise/shared/error_messages", resource: resource %>
+        
+        
+        <div class="field">
+          <div class='form-text-wrap'>
+            <label class="form-text">ニックネーム</label>
+            <span class="indispensable">必須</span>
+          </div>
+          <%= f.text_area :nickname, autofocus: true, autocomplete: "nickname" %>
+        </div>
+        <div class="field">
+          <div class='form-text-wrap'>
+            <label class="form-text">メールアドレス</label>
+            <span class="indispensable">必須</span>
+          </div>
+          <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+        </div>
+        <div class="field">
+          <div class='form-text-wrap'>
+            <label class="form-text">パスワード</label>
+            <span class="indispensable">必須</span>
+          </div>
+          <%= f.password_field :password, autocomplete: "new-password" %>
+        </div>
+        <div class="field">
+          <div class='form-text-wrap'>
+            <label class="form-text">パスワード(確認)</label>
+            <span class="indispensable">必須</span>
+          </div>
+          <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+        </div>
+        <div class="form-group">
+          <div class='form-text-wrap'>
+            <label class="form-text">生年月日</label>
+            <span class="indispensable">必須</span>
+          </div>
+          <div class='input-birth-wrap'>
+            <%= raw sprintf(
+                        f.date_select(
+                          :birthday,
+                          class:'select-birth',
+                          id:"birth-date",
+                          use_month_numbers: true,
+                          prompt:'--',
+                          start_year: 1930,
+                          end_year: (Time.now.year - 5),
+                          date_separator: '%s'),
+                        "<p> 年 </p>", "<p> 月 </p>") + "<p> 日 </p>" %>
+          </div>
+        </div>
+        <div class="form">
+          <div class="weight-bold-text">
+            好きな映画ジャンル
+            <span class="indispensable">必須</span>
+          </div>
+          <%= f.collection_select(:genre_id, Genre.all, :id, :name, {}, {class:"select-box", id:"item_genre"}) %>
+          <div class="field">
+          <div class='form-text-wrap'>
+            <label class="form-text">お気に入りの映画</label>
+            <span class="indispensable">必須</span>
+          </div>
+          <%= f.text_area :favorite_movie, autofocus: true, autocomplete: "favorite_movie" %>
+        </div>
+          <%= f.submit "会員登録", class: 'register-red-btn'%>
+        </div>
+        
+      <% end %>
+  </div>
+</div>
+
+<%#= render "devise/shared/links" %>

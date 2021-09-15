@@ -1,0 +1,45 @@
+<header class='second-header'>
+  <%= link_to image_tag("movie-logo.png", class:"second-logo"), "/" %>
+</header>
+
+<%= form_with model: @user, url: user_session_path, class: 'session-main', local: true do |f| %>
+
+<div class='account-page' id='account-page'>
+  <div class='account-page__inner clearfix'>
+    <div class='account-page__inner--left account-page__header'>
+      <h5>ログイン</h5>
+    </div>
+    <div class='account-page__inner--right user-form'>
+      <%#= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+        <%= render "devise/shared/error_messages", resource: resource %>
+
+      <%#div class="field">
+        <%= f.label :email %><%#br />
+        <%%#%= f.email_field :email %>
+      <%#/div %>
+
+      <div class="field">
+          <div class='form-text-wrap'>
+            <label class="form-text">メールアドレス</label>
+            <p><%= f.email_field :email %></p>
+          </div>
+      </div>
+
+      
+
+      <div class="field">
+        <div class='form-text-wrap'>
+          <label class="form-text">パスワード</label>
+        </div>
+        <%= f.password_field :password, class:"form-text", id:"password", placeholder:"" %>
+      </div>
+
+
+
+      <div class="actions">
+        <label class="form-text">ログインする</label>
+        <p><%= f.submit "LOG IN", class: 'login-red-btn' %></p>
+      </div>
+    <% end %>
+  </div>
+</div>
