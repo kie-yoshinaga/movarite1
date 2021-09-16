@@ -17,5 +17,5 @@ class User < ApplicationRecord
   has_many :comments  # commentsテーブルとのアソシエーション
   #belongs_to_active_hash :genre
   #belongs_to :genre
-  #has_many :reviews
+  has_many :reviews
 end

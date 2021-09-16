@@ -13,4 +13,12 @@ class Review < ApplicationRecord
   has_many :comments  # commentsテーブルとのアソシエーション
 
   has_one_attached :image
+
+  def self.search(search)
+    if search != ""
+      Review.where('text LIKE(?)', "%#{search}%")
+    else
+      Review.all
+    end
+  end
 end

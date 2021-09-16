@@ -1,0 +1,13 @@
+<header class="review-header">
+  <%= link_to image_tag('movie-logo.png' , size: '185x130'), "/" %>
+</header>
+
+<div class="contents row">
+  <p><%= @nickname %>さんの投稿一覧</p>
+  <% @reviews.each do |review| %>
+    <div class="content_post" style="background-image: url(<%= review.image %>);">
+      <p><%= review.text %></p>
+      <span class="name"><%= review.name %></span>
+    </div>
+  <% end %>
+</div>

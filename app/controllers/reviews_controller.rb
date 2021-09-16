@@ -47,6 +47,10 @@ class ReviewsController < ApplicationController
     end
   end
 
+  def search
+    @reviews = Review.search(params[:keyword])
+  end
+
   private
 
   def redirect_root

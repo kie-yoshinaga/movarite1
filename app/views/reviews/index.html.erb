@@ -15,7 +15,7 @@
     <ul class='lists-right' %>
 
       <% if user_signed_in? %>
-        <li><%= link_to current_user.nickname, "#", class: "user-nickname" %></li>
+        <li><%= link_to current_user.nickname, "/users/#{current_user.id}", class: "user-nickname" %></li>
         <li><%= link_to 'Post Review', new_review_path, class: "movie-list" %></li>
         <li><%= link_to 'LogOut', destroy_user_session_path, method: :delete, class: "logout" %></li> 
       <% else %>
