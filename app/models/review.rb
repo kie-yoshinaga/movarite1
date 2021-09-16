@@ -10,6 +10,7 @@ class Review < ApplicationRecord
 
   belongs_to :user
   belongs_to_active_hash :genre
+  has_many :comments  # commentsテーブルとのアソシエーション
 
   has_one_attached :image
 end
