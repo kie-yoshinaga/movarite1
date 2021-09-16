@@ -1,0 +1,90 @@
+<div class="review-contents">
+  <header class="review-header">
+    <%= link_to image_tag('movie-logo.png' , size: '185x130'), "/" %>
+  </header>
+</div>
+
+<%#= render "shared/header" %>
+
+<%# 商品の概要 %>
+<div class="review-show">
+  <div class="review-box">
+    <h2 class="name">
+      <%= @reviews.title %>
+    </h2>
+    <div class="review-img-content">
+      <%= image_tag @reviews.image ,class:"review-box-img" %>
+    </div>
+    <div class="review-price-box">
+      <span class="review-postage">
+        <%= @reviews.genre.name %>
+      </span>
+    </div>
+
+
+
+
+    <% if current_user.id == @reviews.user_id %>
+        <%= link_to "レビューの編集", edit_review_path, method: :get, class: "review-red-btn" %>
+        <p class="or-text">or</p>
+        <%= link_to "削除", review_path, method: :delete, class:"review-destroy" %>
+      <%# end %>
+    <% end %>
+    
+
+    
+
+   
+
+
+    <div class="review-explain-box">
+      <span><%= @reviews.detail %></span>
+    </div>
+    <table class="detail-table">
+      <tbody>
+        <tr>
+          <th class="detail-review">投稿者</th>
+          <td class="detail-value"><%= @reviews.user.nickname %></td>
+        </tr>
+        <tr>
+          <th class="detail-review">映画のジャンル</th>
+          <td class="detail-value"><%= @reviews.genre.name %></td>
+        </tr>
+        <tr>
+          <th class="detail-review">監督名</th>
+          <td class="detail-value"><%= @reviews.directer %></td>
+        </tr>
+        <tr>
+          <th class="detail-review">主演</th>
+          <td class="detail-value"><%= @reviews.starring %></td>
+        </tr>
+      </tbody>
+    </table>
+    
+  </div>
+  <%# /商品の概要 %>
+
+  <div class="comment-box">
+    <form>
+      <textarea class="comment-text"></textarea>
+      
+      <button type="submit" class="comment-btn">
+        <%= image_tag "comment.png" ,class:"comment-flag-icon" ,width:"20",height:"25"%>
+        <span>コメントする<span>
+      </button>
+    </form>
+  </div>
+  
+
+  <a href="#" class="another-item"><%= @item_category %>この投稿者のレビューをもっと見る</a>
+
+</div>
+
+
+<footer class="review-sell-footer">
+  <%= link_to image_tag('movie-logo.png' , size: '185x130'), "/" %>
+    <p class="inc">
+    ©︎MOVARITE,Inc.
+    </p>
+</footer>
+<%#= render "shared/footer" %>

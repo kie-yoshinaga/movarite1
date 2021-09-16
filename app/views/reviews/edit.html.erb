@@ -1,0 +1,82 @@
+<div class="review-contents">
+  <header class="review-header">
+    <%= link_to image_tag('movie-logo.png' , size: '185x130'), "/" %>
+  </header>
+  <div class="review-main">
+    <h2 class="review-title">映画の情報を入力</h2>
+    <%= form_with(model: @reviews, local: true ) do |f| %>
+    <div class="img-upload">
+      <div class="weight-bold-text">
+        映画画像
+        <%#span class="indispensable">必須</span%>
+      </div>
+      <div class="click-upload">
+        <p>
+          クリックしてファイルをアップロード
+        </p>
+        <%= f.file_field :image, id:"review-image" %>
+          
+        </div>
+      </div>
+      <%# /映画画像 %>
+      <%# 映画名と説明 %>
+      <div class="new-review">
+        <div class="weight-bold-text">
+          映画タイトル
+          <span class="indispensable">必須</span>
+        </div>
+        <%= f.text_area :title, class:"review-text", id:"review-name", placeholder:"映画タイトル（必須 40文字まで)", maxlength:"40" %>
+        <div class="review-explain">
+          <div class="weight-bold-text">
+            映画の評価
+            <span class="indispensable">必須</span>
+          </div>
+          <%= f.text_area :detail, class:"review-text", id:"item-info", placeholder:"映画の評価（必須 1,000文字まで）（映画内容、演出、良かった点、悪かった点など）" ,rows:"7" ,maxlength:"1000" %>
+        </div>
+      </div>
+      <%# /商品名と商品説明 %>
+
+      <%# 商品の詳細 %>
+      <div class="review-detail">
+        <div class="weight-bold-text">映画の詳細</div>
+        <div class="form">
+          <div class="weight-bold-text">
+            映画のジャンル
+            <span class="indispensable">必須</span>
+          </div>
+          <%= f.collection_select(:genre_id, Genre.all, :id, :name, {}, {class:"select-box", id:"item_genre"}) %>
+          <div class="weight-bold-text">
+            監督名
+            <span class="indispensable">必須</span>
+          </div>
+          <%= f.text_area :directer, class:"review-text", id:"review-name", placeholder:"監督名", maxlength:"40" %>
+          <div class="weight-bold-text">
+            主演俳優、主演女優
+            <span class="indispensable">必須</span>
+          </div>
+          <%= f.text_area :starring, class:"review-text", id:"review-name", placeholder:"主演俳優、主演女優", maxlength:"40" %>
+        
+          
+        </div>
+      </div>
+      <%# /商品の詳細 %>
+
+      
+      <%# 下部ボタン %>
+      <div class="review-contents">
+        <%= f.submit "変更する", class:"review-btn" %>
+        <%=link_to 'もどる', review_path, class:"back-btn" %>
+      </div>
+      <div id="image-list"></div>
+      <%# /下部ボタン %>
+    </div>
+    <% end %>
+
+    <footer class="review-sell-footer">
+      <%= link_to image_tag('movie-logo.png' , size: '185x130'), "/" %>
+      <p class="inc">
+        ©︎MOVARITE,Inc.
+      </p>
+    </footer>
+  </div>
+</div>
