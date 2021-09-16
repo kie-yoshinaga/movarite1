@@ -34,6 +34,8 @@ class ReviewsController < ApplicationController
 
   def show
     @reviews = Review.find(params[:id])
+    @comment = Comment.new
+    @comments = @reviews.comments.includes(:user)
   end
 
   def update
