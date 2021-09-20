@@ -8,6 +8,8 @@ class Review < ApplicationRecord
   validates :starring, presence: true
   #validates :rate, presence: true
 
+  
+
   belongs_to :user
   belongs_to_active_hash :genre
   has_many :comments  # commentsテーブルとのアソシエーション

@@ -1,3 +1,4 @@
+
 <%#= render "shared/header" %>
 <header class='top-page-header'>
   <div class='search-bar-contents'>
@@ -94,23 +95,23 @@
     </div>
     <ul class='review-lists'>
       <% @reviews.each do |review| %>
-      <li class='list'>
-        <%= link_to review_path(review.id) do %>
-          <div class='review-img-content'>
-            <%= image_tag review.image, class: "review-img", size: '185x130' %>
-          </div>
-
-          <div class='review-info'>
-            <h3 class='review-name'>
-              <%= review.title %>
-            </h3>
-            <div class='review-genre'>
-              <span><br><%= review.genre.name %></span>
-              
+        <li class='list'>
+          <%= link_to review_path(review.id) do %>
+            <div class='review-img-content'>
+              <%= image_tag review.image, class: "review-img", size: '185x130' %>
             </div>
-          </div>
-        <% end %>
-      </li>
+
+            <div class='review-info'>
+              <h3 class='review-name'>
+                <%= review.title %>
+              </h3>
+              <div class='review-genre'>
+                <span><br><%= review.genre.name %></span>
+                
+              </div>
+            </div>
+          <% end %>
+        </li>
       <% end %>
     </ul>
 
@@ -146,4 +147,6 @@
   <p>© MOVARITE</p>
 </div>
 
-
+<div class="start">
+  <p><%= link_to image_tag("logo02.png") %></p>
+</div>

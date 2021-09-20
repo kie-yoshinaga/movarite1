@@ -5,9 +5,6 @@
 <div class="contents row">
   <p><%= @nickname %>さんの投稿一覧</p>
   <% @reviews.each do |review| %>
-    <div class="content_post" style="background-image: url(<%= review.image %>);">
-      <p><%= review.text %></p>
-      <span class="name"><%= review.name %></span>
-    </div>
+    <%= render partial: "reviews/review", locals: { review: review } %>
   <% end %>
 </div>
