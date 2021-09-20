@@ -1,0 +1,51 @@
+<header class='top-page-header'>
+  <div class='search-bar-contents'>
+    <form class="search-form" action="#">
+      <input class='input-box' placeholder='search...'>
+      <button class="search-button">
+        <%= image_tag "search.png", class:"search-icon" %>
+      </button>
+    </form>
+  </div>
+  <div class='nav'>
+    <%#ul class='lists-left'><li>
+      <li><%= link_to 'レビューを投稿する', reviews_path, class: "movie-list" %></li>
+    <%#/ul >
+    <ul class='lists-right' %>
+
+      <% if user_signed_in? %>
+        <li><%= link_to current_user.nickname, "/users/#{current_user.id}", class: "user-nickname" %></li>
+        <li><%= link_to 'Post Review', new_review_path, class: "movie-list" %></li>
+        <li><%= link_to 'LogOut', destroy_user_session_path, method: :delete, class: "logout" %></li> 
+      <% else %>
+        <li><%= link_to 'LogIn', new_user_session_path, class: "login" %></li>
+        <li><%= link_to 'SignUP', new_user_registration_path, class: "sign-up" %></li>
+      <% end %>
+
+    </ul>
+  </div>
+</header>
+
+<section id="screen1">
+  <%= link_to image_tag("movie-logo.png", class:"movie-logo-icon"), "/" %>
+  
+	<nav>
+		 <ul>
+   <li><a href="/">Home</a></li>
+		 	  <li><a href="#">About</a></li>
+		 	  <li><a href="#">Services</a></li>
+		 	  <li><a href="#">Genre</a></li>
+		 	  <li><a href="#">Review</a></li>
+		 </ul>
+	</nav>
+
+  <div class='title-contents'>
+    <p></p>
+    <h2>
+      <P>MOVARITEは映画レビューアプリです</P>
+      <p>MOVIE(映画)とFAVORITE(お気に入り)を掛け合わせたアプリです</p>
+      <p>MOVARITEであなたのFAVORITE MOVIEをレビューしよう</p>
+    </h2>
+  </div>
+
+</section>

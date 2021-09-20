@@ -2,10 +2,8 @@ class ReviewsController < ApplicationController
   before_action :set_message, only: [:show, :edit, :update, :destroy ]
   before_action :redirect_root, only: [:edit, :update, :destroy ]
 
-
-
   def index
-    @reviews = Review.all
+    @reviews = Review.includes(:user).order("created_at DESC").limit(4)
   end
 
   def new
@@ -58,7 +56,7 @@ class ReviewsController < ApplicationController
   end
 
   def review_params
-    params.require(:review).permit(:image,:title,:detail,:genre_id,:directer,:starring).merge(user_id: current_user.id)
+    params.require(:review).permit(:image,:title,:detail,:genre_id,:directer,:starring,:rate).merge(user_id: current_user.id)
   end
 
   def set_message
