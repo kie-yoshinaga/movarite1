@@ -8,6 +8,7 @@ Rails.application.routes.draw do
       get 'search'
     end
   end
+  resources :about
   resources :reviews, only:[:create, :new, :index, :show, :edit, :update, :destroy]
   resources :users, only: :show
 end

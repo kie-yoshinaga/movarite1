@@ -1,5 +1,3 @@
-
-<%#= render "shared/header" %>
 <header class='top-page-header'>
   <div class='search-bar-contents'>
     <form class="search-form" action="#">
@@ -37,57 +35,9 @@
 		 	  <li><a href="#">About</a></li>
 		 	  <li><a href="#">Services</a></li>
 		 	  <li><a href="#">Genre</a></li>
-		 	  <li><a href="/reviews/all_review/">Review</a></li>
+		 	  <li><a href="#">Review</a></li>
 		 </ul>
 	</nav>
-
-  <div class='title-contents'>
-    <p></p>
-    <h2>
-      貴方が映画の評価をしよう
-    </h2>
-  </div>
-
-</section>
-
-
-<section id="screen1">
-  <div class='service-title'>
-    <%#p class='service-explain'%>
-      <p>
-        MOVARITEはあなた自身が映画の評価をできる 映画レビューアプリです
-      </p>
-      <p>
-        お気に入りの映画の評価をして世界にあなたのレビューを投稿しよう
-      </p>
-      <p>
-        気になっていた映画はありますか？
-      </p>
-      <p>
-        MOVARITEなら他のユーザーが投稿したレビューを見ることができます
-      </p>
-      <p>
-        コメント機能を使用し他のユーザーと映画を語り合おう
-      </p>
-      <p>
-        <b>MOVARITEであなたも映画評論家になろう</b>
-      </p>
-  </div>
-</section>
-
-
-
-
-
-
-<section id="screen3">
-  <div class='main'>
-
-  <%# 画面上部の「あなたが映画の評価をしよう」帯部分 %>
-  
-  <%# /画面上部の「あなたが映画の評価をしよう」帯部分  %>
-
-  <%# 評価一覧 %>
   <div class='movie-contents'>
     <h2 class='title'>評価が高い映画</h2>
     <div class="subtitle" >
@@ -125,6 +75,7 @@
                 </script>
                 <%= review.rate %>
               </div>
+
             </div>
           <% end %>
         </li>
@@ -132,38 +83,8 @@
     </ul>
 
   </div>
-  <%# /評価一覧 %>
-  <a href="#" class="another-item"><%= @reviews %>をもっと見る</a>
-</div>
 
-<%#= render "shared/footer" %>
+
+
+
 </section>
-<%#<section id="screen3"></section>%>
-
-
-
-
-
-
-
-<div class='footer'>
-  <div class='footer-contents'>
-    <div class='movie-details'>
-      <h2 class='footer-content-head'>MOVARITEを見る</h2>
-      <ul>
-        <li><%= link_to 'カテゴリー一覧', "#", class: "footer-link" %></li>
-      </ul>
-    </div>
-    <div class='movie-details'>
-      <h2 class='footer-content-head'>MOVARITEについて</h2>
-      <ul>
-        <li><%= link_to 'お知らせ', "#", class: "footer-link" %></li>
-      </ul>
-    </div>
-  </div>
-  <p>© MOVARITE</p>
-</div>
-
-<div class="start">
-  <p><%= link_to image_tag("logo02.png") %></p>
-</div>

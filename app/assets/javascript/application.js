@@ -11,14 +11,17 @@
 
 //= require activestorage
 //= require turbolinks
-//= require_tree .
 //= require jquery 
+//= require jquery.raty.js
 //= require jquery_ujs 
 //=require("@rails/ujs").start()
+//= require_tree .
+
 
 //=require("@rails/activestorage").start()
 //=require("channels")
-//= require jquery.raty.js
+
+
 
 
 
