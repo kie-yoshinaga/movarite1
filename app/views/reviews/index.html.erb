@@ -2,13 +2,15 @@
 <%#= render "shared/header" %>
 <header class='top-page-header'>
   <div class='search-bar-contents'>
-    <form class="search-form" action="#">
+    <form class="search-form" action= "search" >
       <input class='input-box' placeholder='search...'>
       <button class="search-button">
         <%= image_tag "search.png", class:"search-icon" %>
       </button>
     </form>
   </div>
+
+
   <div class='nav'>
     <%#ul class='lists-left'><li>
       <li><%= link_to 'レビューを投稿する', reviews_path, class: "movie-list" %></li>
@@ -34,10 +36,10 @@
 	<nav>
 		 <ul>
    <li><a href="/">Home</a></li>
-		 	  <li><a href="#">About</a></li>
+		 	  <li><a href="/">About</a></li>
 		 	  <li><a href="#">Services</a></li>
 		 	  <li><a href="#">Genre</a></li>
-		 	  <li><a href="/reviews/all_review/">Review</a></li>
+		 	  <li><a href="/">Review</a></li>
 		 </ul>
 	</nav>
 
@@ -80,7 +82,6 @@
 
 
 
-<section id="screen3">
   <div class='main'>
 
   <%# 画面上部の「あなたが映画の評価をしよう」帯部分 %>
@@ -88,81 +89,83 @@
   <%# /画面上部の「あなたが映画の評価をしよう」帯部分  %>
 
   <%# 評価一覧 %>
-  <div class='movie-contents'>
-    <h2 class='title'>評価が高い映画</h2>
-    <div class="subtitle" >
-      新規レビュー映画
+    <div class='movie-contents'>
+      <h2 class='title'>評価が高い映画</h2>
+      <div class="subtitle" >
+        新規レビュー映画
+      </div>
+      <ul class='review-lists'>
+        <% @reviews.each do |review| %>
+          <li class='list'>
+            <%= link_to review_path(review.id) do %>
+              <div class='review-img-content'>
+                <%= image_tag review.image, class: "review-img", size: '185x130' %>
+              </div>
+
+              <div class='review-info'>
+                <h3 class='review-name'>
+                  <%= review.title %>
+                </h3>
+                <div class='review-genre'>
+                  <span><br><%= review.genre.name %></span>
+                </div>
+                
+                <div class="relative-review-rate">
+                  <span>評価：</span>
+                  <span id="star-rate-<%= review.id %>"></span>
+                  <script>
+                    $('#star-rate-<%= review.id %>').raty({
+                      size: 36,
+                      starOff: "<%= asset_path('star-off.png') %>",
+                      starOn: "<%= asset_path('star-on.png') %>",
+                      starHalf: "<%= asset_path('star-half.png') %>",
+                      half: true,   
+                      readOnly: true,   
+                      score: <%= review.rate %>,   
+                    });
+                  </script>
+                  <%= review.rate %>
+                </div>
+              </div>
+            <% end %>
+          </li>
+        <% end %>
+        
+      </ul>
+
     </div>
-    <ul class='review-lists'>
-      <% @reviews.each do |review| %>
-        <li class='list'>
-          <%= link_to review_path(review.id) do %>
-            <div class='review-img-content'>
-              <%= image_tag review.image, class: "review-img", size: '185x130' %>
-            </div>
-
-            <div class='review-info'>
-              <h3 class='review-name'>
-                <%= review.title %>
-              </h3>
-              <div class='review-genre'>
-                <span><br><%= review.genre.name %></span>
-              </div>
-              
-              <div class="relative-review-rate">
-                <span>評価：</span>
-                <span id="star-rate-<%= review.id %>"></span>
-                <script>
-                  $('#star-rate-<%= review.id %>').raty({
-                    size: 36,
-                    starOff: "<%= asset_path('star-off.png') %>",
-                    starOn: "<%= asset_path('star-on.png') %>",
-                    starHalf: "<%= asset_path('star-half.png') %>",
-                    half: true,   
-                    readOnly: true,   
-                    score: <%= review.rate %>,   
-                  });
-                </script>
-                <%= review.rate %>
-              </div>
-            </div>
-          <% end %>
-        </li>
-      <% end %>
-    </ul>
-
+    <%# /評価一覧 %>
+    
   </div>
-  <%# /評価一覧 %>
-  <a href="#" class="another-item"><%= @reviews %>をもっと見る</a>
-</div>
 
-<%#= render "shared/footer" %>
+  <%#= render "shared/footer" %>
+  
+
+
+<section id="screen3">
+  <%= link_to "レビューをもっと見る", "/reviews/all_review", method: :get, class: "review-blue-btn" %>
 </section>
-<%#<section id="screen3"></section>%>
 
 
 
-
-
-
-
-<div class='footer'>
-  <div class='footer-contents'>
-    <div class='movie-details'>
-      <h2 class='footer-content-head'>MOVARITEを見る</h2>
-      <ul>
-        <li><%= link_to 'カテゴリー一覧', "#", class: "footer-link" %></li>
-      </ul>
+  <div class='footer'>
+    <div class='footer-contents'>
+      <div class='movie-details'>
+        <h2 class='footer-content-head'>MOVARITEを見る</h2>
+        <ul>
+          <li><%= link_to 'カテゴリー一覧', "#", class: "footer-link" %></li>
+        </ul>
+      </div>
+      <div class='movie-details'>
+        <h2 class='footer-content-head'>MOVARITEについて</h2>
+        <ul>
+          <li><%= link_to 'お知らせ', "#", class: "footer-link" %></li>
+        </ul>
+      </div>
     </div>
-    <div class='movie-details'>
-      <h2 class='footer-content-head'>MOVARITEについて</h2>
-      <ul>
-        <li><%= link_to 'お知らせ', "#", class: "footer-link" %></li>
-      </ul>
-    </div>
+    <p>© MOVARITE</p>
   </div>
-  <p>© MOVARITE</p>
-</div>
+
 
 <div class="start">
   <p><%= link_to image_tag("logo02.png") %></p>

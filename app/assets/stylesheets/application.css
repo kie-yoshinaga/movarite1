@@ -76,10 +76,12 @@ section {
 
 #screen2 {
 	background: #e1793d;
+  background-image: image-url('movie03.jpeg.png');
 }
 
 #screen3 {
 	background: #e1793d;
+  height: 20vh;
 }
 
 @media only screen and (max-width: 520px) {
@@ -104,6 +106,14 @@ section {
   padding: 10vh 0;
 }
 
+.reviews-contents {
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10vh 0;
+}
+
 .review-contents>.title {
   font-size: 5vh;
   line-height: 1.4;
@@ -114,7 +124,7 @@ section {
   font-size: 3vh;
   margin: 1vh 0;
   text-decoration: none;
-  color: #3ccace;
+  color: #fff;
   font-weight: bold;
 }
 
@@ -146,6 +156,13 @@ section {
   color: black;
   padding: 1vw;
 }
+
+.reviews-info {
+  background-color: #efc94d;
+  color: black;
+  padding: 1vw;
+}
+
 
 .review-name {
   font-size: 2.5vh;

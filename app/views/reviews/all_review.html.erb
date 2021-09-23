@@ -44,41 +44,11 @@
       新規レビュー映画
     </div>
     <ul class='review-lists'>
+      <h4>＜レビュー一覧＞</h4>
       <% @reviews.each do |review| %>
-        <li class='list'>
-          <%= link_to review_path(review.id) do %>
-            <div class='review-img-content'>
-              <%= image_tag review.image, class: "review-img", size: '185x130' %>
-            </div>
-
-            <div class='review-info'>
-              <h3 class='review-name'>
-                <%= review.title %>
-              </h3>
-              <div class='review-genre'>
-                <span><br><%= review.genre.name %></span>
-              </div>
-              
-              <div class="relative-review-rate">
-                <span>評価：</span>
-                <span id="star-rate-<%= review.id %>"></span>
-                <script>
-                  $('#star-rate-<%= review.id %>').raty({
-                    size: 36,
-                    starOff: "<%= asset_path('star-off.png') %>",
-                    starOn: "<%= asset_path('star-on.png') %>",
-                    starHalf: "<%= asset_path('star-half.png') %>",
-                    half: true,   
-                    readOnly: true,   
-                    score: <%= review.rate %>,   
-                  });
-                </script>
-                <%= review.rate %>
-              </div>
-
-            </div>
-          <% end %>
-        </li>
+        <p>
+          <strong><%= link_to review.user.nickname, "/users/#{review.user_id}" %>：</strong>
+        </p>
       <% end %>
     </ul>
 

@@ -150,6 +150,7 @@ a {
 .service-title {
   font-size: 4vh;
   padding: 5vh 10vw;
+  background-image: image-url('movie03.jpeg');
 }
 
 .service-explain {
@@ -171,11 +172,11 @@ a {
 /* 評価一覧 */
 
 .movie-contents {
-  background-color: #FFF;
+  background-color: #e1793d;
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 10vh 0;
+  padding: 10vh 0 ;
 }
 
 .movie-contents>.title {
@@ -188,7 +189,7 @@ a {
   font-size: 3vh;
   margin: 1vh 0;
   text-decoration: none;
-  color: #3ccace;
+  color: #fff;
   font-weight: bold;
 }
 

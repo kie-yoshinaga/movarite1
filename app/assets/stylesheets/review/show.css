@@ -60,6 +60,16 @@
   padding: 2vh 10vw;
 }
 
+.review-blue-btn {
+  text-align: center;
+  background-color: #2d85ea;
+  font-size: 20px;
+  font-weight: bold;
+  color: #FFF;
+  margin: 100px 0px;
+  padding: 2vh 10vw;
+}
+
 .or-text {
   font-size: 20px;
 }

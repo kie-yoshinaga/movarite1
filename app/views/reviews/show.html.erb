@@ -6,7 +6,7 @@
 
 <%#= render "shared/header" %>
 
-<%# 商品の概要 %>
+<%# eigaの概要 %>
 <div class="review-show">
   <div class="review-box">
     <h2 class="name">
@@ -69,7 +69,7 @@
 
   <div class="container">
     <% if user_signed_in? %>
-      <%= form_with(model: [@tweet, @comment], local: true) do |form| %>
+      <%= form_with(model: [@reviews, @comment], local: true) do |form| %>
         <%= form.text_area :text, placeholder: "コメントする", rows: "2" %>
         <%= form.submit "SEND" %>
       <% end %>
@@ -79,17 +79,17 @@
   </div>
   <div class="comments">
     <h4>＜コメント一覧＞</h4>
-    <% @comments.each do |comment| %>
-      <p>
-        <strong><%= link_to comment.user.nickname, "/users/#{comment.user_id}" %>：</strong>
-        <%= comment.text %>
-      </p>
-    <% end %>
-  </div>
+    <div id='comments'>
+      <% @comments.reverse_each do |comment| %>
+        <p><%= comment.text %></p>
+      <% end %>
+    </div>
   </div>
   
+  
+  
 
-  <a href="#" class="another-item"><%= @item_category %>この投稿者のレビューをもっと見る</a>
+  <%= link_to "この投稿者のレビューをもっと見る", user_path(@reviews.user_id) %>
 
 </div>
 

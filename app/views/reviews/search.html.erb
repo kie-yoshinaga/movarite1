@@ -2,8 +2,7 @@
   <%= form.text_field :keyword, placeholder: "投稿を検索する", class: "search-input" %>
   <%= form.submit "検索", class: "search-btn" %>
 <% end %>
+
 <div class="contents row">
-  <% @reviews.each do |review| %>
-    <%= render partial: "review", locals: { review: review } %>
-  <% end %>
+  <%= review_lists(@reviews) %>
 </div>

@@ -1,9 +1,10 @@
 class ReviewsController < ApplicationController
   before_action :set_message, only: [:show, :edit, :update, :destroy ]
   before_action :redirect_root, only: [:edit, :update, :destroy ]
+  #before_action :move_to_index, except: [:index, :show, :search]
 
   def index
-    @reviews = Review.includes(:user).order("created_at DESC").limit(4)
+    @reviews = Review.includes(:user).order("created_at DESC").limit(16)
   end
 
   def new
@@ -31,7 +32,6 @@ class ReviewsController < ApplicationController
   end
 
   def show
-    @reviews = Review.find(params[:id])
     @comment = Comment.new
     @comments = @reviews.comments.includes(:user)
   end

@@ -26,8 +26,7 @@
             クリックしてファイルをアップロード
           </p>
           <%= f.file_field :image, id:"review-image" %>
-            
-          </div>
+          
         </div>
         <%# /映画画像 %>
         <%# 映画名と説明 %>
@@ -70,6 +69,7 @@
         </div>
           <div class="field" id="star">
             <%= f.label :rate, "評価：" %>
+            <span class="indispensable">必須</span>
             <%= f.hidden_field :rate, id: :review_star %>
             <script>
               $('#star').raty({
@@ -90,7 +90,7 @@
 
     
     <%# 下部ボタン %>
-    <div class="review-contents">
+    <div class="reviews-contents">
       <%= f.submit "レビューを投稿する", class:"review-btn" %>
       <%=link_to 'もどる', root_path, class:"back-btn" %>
     </div>
@@ -99,11 +99,6 @@
     </div>
     <% end %>
 
-    <footer class="review-sell-footer">
-      <%= link_to image_tag('movie-logo.png' , size: '185x130'), "/" %>
-      <p class="inc">
-        ©︎MOVARITE,Inc.
-      </p>
-    </footer>
+
   </div>
 </div>

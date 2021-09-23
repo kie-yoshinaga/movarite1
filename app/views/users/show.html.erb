@@ -1,10 +1,42 @@
-<header class="review-header">
+<header class="reviews-header">
   <%= link_to image_tag('movie-logo.png' , size: '185x130'), "/" %>
 </header>
 
 <div class="contents row">
   <p><%= @nickname %>さんの投稿一覧</p>
   <% @reviews.each do |review| %>
-    <%= render partial: "reviews/review", locals: { review: review } %>
+    <li class='list'>
+      <%= link_to review_path(review.id) do %>
+        <div class='review-img-content'>
+          <%= image_tag review.image, class: "review-img", size: '185x130' %>
+        </div>
+
+        <div class='reviews-info'>
+          <h3 class='review-name'>
+            <%= review.title %>
+          </h3>
+          <div class='review-genre'>
+            <span><br><%= review.genre.name %></span>
+          </div>
+          
+          <div class="relative-review-rate">
+            <span>評価：</span>
+            <span id="star-rate-<%= review.id %>"></span>
+            <script>
+              $('#star-rate-<%= review.id %>').raty({
+                size: 36,
+                starOff: "<%= asset_path('star-off.png') %>",
+                starOn: "<%= asset_path('star-on.png') %>",
+                starHalf: "<%= asset_path('star-half.png') %>",
+                half: true,   
+                readOnly: true,   
+                score: <%= review.rate %>,   
+              });
+            </script>
+            <%= review.rate %>
+          </div>
+        </div>
+      <% end %>
+    </li>
   <% end %>
 </div>
