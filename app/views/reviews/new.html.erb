@@ -31,6 +31,7 @@
         <%# /映画画像 %>
         <%# 映画名と説明 %>
         <div class="new-review">
+          
           <div class="weight-bold-text">
             映画タイトル
             <span class="indispensable">必須</span>
@@ -38,10 +39,10 @@
           <%= f.text_area :title, class:"review-text", id:"review-name", placeholder:"映画タイトル（必須 40文字まで)", maxlength:"40" %>
           <div class="review-explain">
             <div class="weight-bold-text">
-              映画の評価
+              映画の詳細
               <span class="indispensable">必須</span>
             </div>
-            <%= f.text_area :detail, class:"review-text", id:"item-info", placeholder:"映画の評価（必須 1,000文字まで）（映画内容、演出、良かった点、悪かった点など）" ,rows:"7" ,maxlength:"1000" %>
+            <%= f.text_area :detail, class:"review-text", id:"item-info", placeholder:"映画の詳細（必須 1,000文字まで）（映画内容、演出、良かった点、悪かった点など）" ,rows:"7" ,maxlength:"1000" %>
           </div>
         </div>
         <%# /商品名と商品説明 %>
@@ -56,10 +57,10 @@
             </div>
             <%= f.collection_select(:genre_id, Genre.all, :id, :name, {}, {class:"select-box", id:"item_genre"}) %>
             <div class="weight-bold-text">
-              監督名
+              映画監督
               <span class="indispensable">必須</span>
             </div>
-            <%= f.text_area :directer, class:"review-text", id:"review-name", placeholder:"監督名", maxlength:"40" %>
+            <%= f.text_area :directer, class:"review-text", id:"review-name", placeholder:"映画監督", maxlength:"40" %>
             <div class="weight-bold-text">
               主演俳優、主演女優
               <span class="indispensable">必須</span>
